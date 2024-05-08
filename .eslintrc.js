@@ -1,0 +1,32 @@
+module.exports = {
+    extends: 'airbnb-base',
+    plugins: ['import'],
+    rules: {
+      'no-console': 0,
+      'import/newline-after-import': 'off',
+      'no-unused-vars': 0,
+      'max-len': 0,
+      'linebreak-style': 0,
+      'no-underscore-dangle': 0,
+      'consistent-return': 0,
+      'no-tabs': 0,
+      'no-mixed-spaces-and-tabs': 0,
+      'class-methods-use-this': 0,
+      'no-param-reassign': 0,
+      avoidEscape: true,
+      allowTemplateLiterals: true,
+      'no-confusing-arrow': 0,
+      'object-curly-spacing': 0,
+      'operator-linebreak': 0,
+      'arrow-parens': 0,
+      'object-curly-newline': 0,
+      'prefer-spread': 0,
+    },
+  
+    env: {
+      browser: true,
+      node: true,
+      es6: true,
+      mocha: true,
+    },
+  };
