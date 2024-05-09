@@ -14,6 +14,9 @@ const courseSchema = new Schema(
     tutor: {
       type: String,
     },
+    tutorDetails: {
+      type: String,
+    },
     duration: {
       type: String,
     },
