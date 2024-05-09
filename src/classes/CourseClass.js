@@ -36,4 +36,17 @@ export default class CourseClass {
       code: 200,
     };
   }
+
+  /**
+     * USER VIEW SINGLE COURSE
+     * @param {{}} course
+  */
+  async getCourse(course) {
+    const thecourse = await Course.findById({ _id: course.id });
+    return {
+      status: 'success',
+      data: thecourse,
+      code: 200,
+    };
+  }
 }

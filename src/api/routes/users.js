@@ -35,7 +35,7 @@ export default (app) => {
   );
 
   route.get(
-    '/my-profile', userAuth,
+    '/my-profile/:id', userAuth,
     asyncHandler(userController.myProfile),
   );
 };

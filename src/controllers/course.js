@@ -39,5 +39,17 @@ const courseController = {
     return successWithData(res, 200, data);
   },
 
+  // USER VIEW ONE COURSE
+  // @route       GET api/v1/course/course-details/id
+  // @desc        User View Single Course Details
+  // @access      Private(User)
+  fetchCourseDetails: async (req, res) => {
+    const response = await new CourseClass().getCourse(req.params);
+    const { status, message, data, code } = response;
+    if (status === 'error') return serverResponse(res, message, code);
+    LoggerInstance.info('Fetch Course Details Successfully');
+    return successWithData(res, 200, data);
+  },
+
 };
 export default courseController;

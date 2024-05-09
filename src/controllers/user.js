@@ -66,14 +66,14 @@ const userController = {
   },
 
   // USER VIEW MY PROFILE
-  // @route       GET api/v1/user/my-profile
+  // @route       GET api/v1/user/my-profile/id
   // @desc        User View his / her profile
   // @access      Private(User)
   myProfile: async (req, res) => {
-    const response = await new UserClass().myProfile(req.user);
+    const response = await new UserClass().myProfile(req.params);
     const { status, message, data, code } = response;
     if (status === 'error') return serverResponse(res, message, code);
-    LoggerInstance.info('Profile Successfully');
+    LoggerInstance.info('Fetch User Profile Successfully');
     return successWithData(res, 200, data);
   },
 

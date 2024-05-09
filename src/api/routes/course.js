@@ -19,4 +19,9 @@ export default (app) => {
     '/all-courses', userAuth,
     asyncHandler(courseController.AllCourse),
   );
+
+  route.get(
+    '/course-details/:id', userAuth,
+    asyncHandler(courseController.fetchCourseDetails),
+  );
 };

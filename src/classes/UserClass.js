@@ -1,8 +1,11 @@
 
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import emailService from '../services/emailService';
 import emailTemplate from '../helpers/emailTemplate';
 import ErrorHandler from '../helpers/errHandler';
+import accountAuth from '../api/middleware/accountAuth';
+const { userAuth } = accountAuth;
 
 const { serverResponse } = ErrorHandler;
 const { emailServiceAuto } = emailService;
@@ -139,7 +142,7 @@ export default class UserClass {
      * @param {{}} user
   */
   async myProfile(user) {
-    const myProfile = user;
+    const myProfile = await User.findById({ _id: user.id });
     return {
       status: 'success',
       data: myProfile,
