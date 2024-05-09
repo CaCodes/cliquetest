@@ -156,6 +156,7 @@ export default class UserClass {
      * @param {{}} user
   */
   async logoutAll(user) {
+    console.log('Userrrrrrrrrrr', user);
     user.tokens = [];
     await user.save();
 

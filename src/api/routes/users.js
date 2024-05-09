@@ -41,6 +41,6 @@ export default (app) => {
 
   route.post(
     '/logout-all', userAuth,
-    asyncHandler(userController.logoutAll),
+    asyncHandler(userController.logoutAllDevice),
   );
 };

@@ -82,7 +82,7 @@ const userController = {
   // @route       POST api/v1/user/logout-all
   // @desc        User Log out from all devices
   // @access      Private(User)
-  logoutAll: async (req, res) => {
+  logoutAllDevice: async (req, res) => {
     const response = await new UserClass().logoutAll(req.user);
     const { status, message, data, code } = response;
     if (status === 'error') return serverResponse(res, message, code);
