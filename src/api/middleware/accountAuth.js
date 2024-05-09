@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../../models/User';
 import config from '../../config/index';
-import ErrorResponse from '../../classes/errorResponse_class';
+// import ErrorResponse from '../../classes/errorResponse_class';
 import ErrorHandler from '../../helpers/errHandler';
 const {
   serverResponse,
@@ -29,20 +29,5 @@ const accountAuth = {
     }
   },
 
-
-  /**
-     * @param  {...any} permittedRoles admin | super_admin
-  */
-
-  permit: permittedRoles => (request, response, next) => {
-    const { admin } = request;
-
-    if (admin && permittedRoles.includes(admin.role)) {
-      next(); // role is allowed, so continue on the next middleware
-    } else {
-      return serverResponse(response, 'Forbidden Request, You Are Not Authorized', 403); // Admin Is forbidden
-    }
-  }
-  ,
 };
 export default accountAuth;

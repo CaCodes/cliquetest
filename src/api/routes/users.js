@@ -4,7 +4,7 @@ import userValidation from '../../validations/userValidation';
 import accountAuth from '../middleware/accountAuth';
 import asyncHandler from '../middleware/asyncHandler_middleware';
 import joiMiddleware from '../middleware/joi_middleware';
-const { userAuth, adminAuth } = accountAuth;
+const { userAuth } = accountAuth;
 const route = Router();
 export default (app) => {
   app.use('/user', route);
@@ -37,5 +37,10 @@ export default (app) => {
   route.get(
     '/my-profile/:id', userAuth,
     asyncHandler(userController.myProfile),
+  );
+
+  route.post(
+    '/logout-all', userAuth,
+    asyncHandler(userController.logoutAll),
   );
 };

@@ -1,19 +1,15 @@
 
 import Course from '../models/Course';
-// import emailService from '../services/emailService';
-// import emailTemplate from '../helpers/emailTemplate';
 import ErrorHandler from '../helpers/errHandler';
 
 const { serverResponse } = ErrorHandler;
-// const { emailServiceAuto } = emailService;
-
 export default class CourseClass {
   //-----------------------------------------------------------------
   // ----------------COURSE SECTION FOR COURSE MANAGEMENT---------------
   //-----------------------------------------------------------------
 
   /**
-     * ADD COURSE
+     * ADD NEW COURSE
      * @param {{}} data
   */
   async createNewCourse(data) {

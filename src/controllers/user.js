@@ -78,19 +78,6 @@ const userController = {
   },
 
 
-  // USER LOGOUT CURRENT DEVICE
-  // @route       POST api/v1/user/logout
-  // @desc        User Log out from current device
-  // @access      Private(User)
-  logout: async (req, res) => {
-    const response = await new UserClass().logout(req.user, req.token);
-    const { status, message, data, code } = response;
-    if (status === 'error') return serverResponse(res, message, code);
-    LoggerInstance.info('Logged Out Successfully');
-    return successWithData(res, 200, data);
-  },
-
-
   // USER LOGOUT ALL DEVICES
   // @route       POST api/v1/user/logout-all
   // @desc        User Log out from all devices

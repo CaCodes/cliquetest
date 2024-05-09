@@ -152,46 +152,6 @@ export default class UserClass {
 
 
   /**
-     * USER CHANGE PASSWORD
-     * @param {{}} data
-     * @param {{}} user
-  */
-  async changePassword(user, data) {
-    const { newPassword, oldPassword } = data;
-
-    const isMatch = await user.comparePassword(oldPassword);
-    if (!isMatch) { return { status: 'error', message: 'Wrong Old Password', code: 401 }; }
-
-    user.password = newPassword;
-    user.tokens = [];
-    await user.save();
-
-    return {
-      status: 'success',
-      data: 'Password Updated Successfully, Kindly Login Again',
-      code: 200,
-    };
-  }
-
-
-  /**
-     * USER LOGOUT CURRENT DEVICE
-     * @param {{}} user
-     * @param {String} currentToken
-  */
-  async logout(user, currentToken) {
-    user.tokens = user.tokens.filter(token => token.token !== currentToken);
-    await user.save();
-
-    return {
-      status: 'success',
-      data: 'Logged out Successfully',
-      code: 200,
-    };
-  }
-
-
-  /**
      * USER LOGOUT ALL DEVICE
      * @param {{}} user
   */
